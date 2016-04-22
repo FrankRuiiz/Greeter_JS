@@ -24,7 +24,7 @@
     Greetr.prototype = {  // This is where all Greetr methods will live
 
         fullName: function() {
-            return this.fullName + ' ' + this.lastName;
+            return this.firstName + ' ' + this.lastName;
         },
 
         validate: function() {
@@ -66,8 +66,35 @@
             }
 
             return this;
-        }
+        },
 
+        setLang: function(lang) {
+            this.language = lang;
+
+            this.validate();
+
+            return this;
+        },
+
+        HTMLGreeting: function(selector, formal) {
+            if(!$) {
+                throw 'jQuery not loaded';
+            }
+            if(!selector) {
+                throw 'Missing jQuery selector';
+            }
+
+            var msg;
+            if(formal) {
+                msg = this.formalGreeting();
+            }
+            else {
+                msg = this.greeting();
+            }
+            $(selector).html(msg);
+
+            return this;
+        }
 
     };
 
