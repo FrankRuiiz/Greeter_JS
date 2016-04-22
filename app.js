@@ -1,3 +1,2 @@
-/**
- * Created by FrankyR on 4/20/2016.
- */
+var g = G$('Frank', 'Ruiz');
+console.log(g);
